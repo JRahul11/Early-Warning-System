@@ -48,7 +48,7 @@ def receive(request):
         #     usr = User.objects.create_user(username=un)
         # login(request, user)
 
-        print(load['customFieldInputValues']['Name'])
+        #print(load['customFieldInputValues']['Name'])
         print("*"*50)
         status = 200 if verifyToken(payload) else 404
         response_data = {"status": status}
