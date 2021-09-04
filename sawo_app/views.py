@@ -8,12 +8,11 @@ from sawo import createTemplate, getContext, verifyToken
 import json
 from django.http import HttpResponse
 
-# test classverifyToken
 load = ''
 loaded = 0
-# un = ''
+un = ''
 
-createTemplate("templates/partials")  # location name for partial file creation
+createTemplate("templates/partials")
 
 
 def index(request):
@@ -21,35 +20,27 @@ def index(request):
     setLoaded()
     setPayload(load if loaded < 2 else '')
     context = {"sawo": getContext(config, "receive/") if(config) else {},
-               "load": load, "title": "Home"}  # getContext(config,"main/receive")
-    # print(un)
+               "load": load, "title": "Home"}
     if load:
-        return render(request, "main_app/home.html")
+        return redirect('travelreport')
     else:
         return render(request, "sawo_app/index.html", context)
-
-
-# def home(request):
-#     return render(request, "home.html")
 
 
 def receive(request):
     if request.method == 'POST':
         payload = json.loads(request.body)["payload"]
-        print("*"*50)
-        print(payload)
         setLoaded(True)
         setPayload(payload)
-        print(load)
-        # un = load['identifier']
-        # try:
-        #     usr = User.objects.get(username=un)
-        # except User.DoesNotExist:
-        #     usr = User.objects.create_user(username=un)
-        # login(request, user)
 
-        print(load['customFieldInputValues']['Name'])
-        print("*"*50)
+        un = load['identifier']
+        try:
+            usr = User.objects.get(username=un)
+        except User.DoesNotExist:
+            usr = User.objects.create_user(username=un)
+            usr.save()
+        login(request, usr)
+
         status = 200 if verifyToken(payload) else 404
         response_data = {"status": status}
         return HttpResponse(json.dumps(response_data), content_type="application/json")
