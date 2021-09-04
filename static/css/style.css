@@ -70,7 +70,11 @@
 
 .home {
     display: flex;
+<<<<<<< HEAD
     background: url("https://images.unsplash.com/photo-1630541657813-c16abe60f05b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80%22%22") no-repeat center;
+=======
+    background: url("https://images.unsplash.com/photo-1630541657813-c16abe60f05b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80%22") no-repeat center;
+>>>>>>> f38bf5ea40ee1567db5d7ed43e44a2f9805387a0
     height: 100vh;
     color: #fff;
     min-height: 500px;
@@ -199,6 +203,7 @@ th {
     top: 110px;
     border-radius: 28px;
     height: fit-content;
+<<<<<<< HEAD
 }
 
 #table-2 {
@@ -218,4 +223,6 @@ th {
     color: #fff;
     min-height: 500px;
     background-size: cover;
+=======
+>>>>>>> f38bf5ea40ee1567db5d7ed43e44a2f9805387a0
 }
