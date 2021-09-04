@@ -1,0 +1,182 @@
+{% extends 'main_nav.html' %} {% load static %} {% block title %} Report {% endblock %} {% block content %}
+<div style="width: 100%; height: 200vh;" id="vanta-canvas">
+    <table id="table-1">
+        <thead>
+            <tr>
+                <th style="color: #304100;">Time</th>
+                <th style="color: #304100;">Temperature(°F)</th>
+                <th style="color: #304100;">Minimum Temperature(°F)</th>
+                <th style="color: #304100;">Maximum Temperature(°F)</th>
+                <th style="color: #304100;">Humidity(%rh)</th>
+                <th style="color: #304100;">Weather Group</th>
+                <th style="color: #304100;">Weather Description</th>
+                <th style="color: #304100;">Wind Speed(m/s)</th>
+                <th style="color: #304100;">AQI</th>
+            </tr>
+        </thead>
+        <tbody>
+            <span id="tbody-1"> {{loc}} </span>
+            <tr>
+                <td>{{time.0}}</td>
+                <td>{{temp.0}}</td>
+                <td>{{mini.0}}</td>
+                <td>{{maxim.0}}</td>
+                <td>{{hum.0}}</td>
+                <td>{{weatherm.0}}</td>
+                <td>{{weatherd.0}}</td>
+                <td>{{windspeed.0}}</td>
+                <td>{{aqi.0}}</td>
+            </tr>
+            <tr>
+                <td>{{time.1}}</td>
+                <td>{{temp.1}}</td>
+                <td>{{mini.1}}</td>
+                <td>{{maxim.1}}</td>
+                <td>{{hum.1}}</td>
+                <td>{{weatherm.1}}</td>
+                <td>{{weatherd.1}}</td>
+                <td>{{windspeed.1}}</td>
+                <td>{{aqi.1}}</td>
+            </tr>
+            <tr>
+                <td>{{time.2}}</td>
+                <td>{{temp.2}}</td>
+                <td>{{mini.2}}</td>
+                <td>{{maxim.2}}</td>
+                <td>{{hum.2}}</td>
+                <td>{{weatherm.2}}</td>
+                <td>{{weatherd.2}}</td>
+                <td>{{windspeed.2}}</td>
+                <td>{{aqi.2}}</td>
+            </tr>
+            <tr>
+                <td>{{time.3}}</td>
+                <td>{{temp.3}}</td>
+                <td>{{mini.3}}</td>
+                <td>{{maxim.3}}</td>
+                <td>{{hum.3}}</td>
+                <td>{{weatherm.3}}</td>
+                <td>{{weatherd.3}}</td>
+                <td>{{windspeed.3}}</td>
+                <td>{{aqi.3}}</td>
+            </tr>
+            <tr>
+                <td>{{time.4}}</td>
+                <td>{{temp.4}}</td>
+                <td>{{mini.4}}</td>
+                <td>{{maxim.4}}</td>
+                <td>{{hum.4}}</td>
+                <td>{{weatherm.4}}</td>
+                <td>{{weatherd.4}}</td>
+                <td>{{windspeed.4}}</td>
+                <td>{{aqi.4}}</td>
+            </tr>
+            <tr>
+                <td>{{time.5}}</td>
+                <td>{{temp.5}}</td>
+                <td>{{mini.5}}</td>
+                <td>{{maxim.5}}</td>
+                <td>{{hum.5}}</td>
+                <td>{{weatherm.5}}</td>
+                <td>{{weatherd.5}}</td>
+                <td>{{windspeed.5}}</td>
+                <td>{{aqi.5}}</td>
+            </tr>
+            <tr>
+                <td>{{time.6}}</td>
+                <td>{{temp.6}}</td>
+                <td>{{mini.6}}</td>
+                <td>{{maxim.6}}</td>
+                <td>{{hum.6}}</td>
+                <td>{{weatherm.6}}</td>
+                <td>{{weatherd.6}}</td>
+                <td>{{windspeed.6}}</td>
+                <td>{{aqi.6}}</td>
+            </tr>
+            <tr>
+                <td>{{time.7}}</td>
+                <td>{{temp.7}}</td>
+                <td>{{mini.7}}</td>
+                <td>{{maxim.7}}</td>
+                <td>{{hum.7}}</td>
+                <td>{{weatherm.7}}</td>
+                <td>{{weatherd.7}}</td>
+                <td>{{windspeed.7}}</td>
+                <td>{{aqi.7}}</td>
+            </tr>
+            <tr>
+                <td>{{time.8}}</td>
+                <td>{{temp.8}}</td>
+                <td>{{mini.8}}</td>
+                <td>{{maxim.8}}</td>
+                <td>{{hum.8}}</td>
+                <td>{{weatherm.8}}</td>
+                <td>{{weatherd.8}}</td>
+                <td>{{windspeed.8}}</td>
+                <td>{{aqi.8}}</td>
+            </tr>
+            <tr>
+                <td>{{time.9}}</td>
+                <td>{{temp.9}}</td>
+                <td>{{mini.9}}</td>
+                <td>{{maxim.9}}</td>
+                <td>{{hum.9}}</td>
+                <td>{{weatherm.9}}</td>
+                <td>{{weatherd.9}}</td>
+                <td>{{windspeed.9}}</td>
+                <td>{{aqi.9}}</td>
+            </tr>
+            <tr>
+                <td>{{time.10}}</td>
+                <td>{{temp.10}}</td>
+                <td>{{mini.10}}</td>
+                <td>{{maxim.10}}</td>
+                <td>{{hum.10}}</td>
+                <td>{{weatherm.10}}</td>
+                <td>{{weatherd.10}}</td>
+                <td>{{windspeed.10}}</td>
+                <td>{{aqi.10}}</td>
+            </tr>
+            <tr>
+                <td>{{time.11}}</td>
+                <td>{{temp.11}}</td>
+                <td>{{mini.11}}</td>
+                <td>{{maxim.11}}</td>
+                <td>{{hum.11}}</td>
+                <td>{{weatherm.11}}</td>
+                <td>{{weatherd.11}}</td>
+                <td>{{windspeed.11}}</td>
+                <td>{{aqi.11}}</td>
+            </tr>
+            <tr>
+                <td>{{time.12}}</td>
+                <td>{{temp.12}}</td>
+                <td>{{mini.12}}</td>
+                <td>{{maxim.12}}</td>
+                <td>{{hum.12}}</td>
+                <td>{{weatherm.12}}</td>
+                <td>{{weatherd.12}}</td>
+                <td>{{windspeed.12}}</td>
+                <td>{{aqi.12}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4" id="footer">
+        <p class="col-md-4 mb-0 text-muted">&copy; 2021 Travel-Buddy, Inc</p>
+
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <img src="{% static 'images/logo.jpg' %}" alt="cloud" style="width: 58px;position: relative;left: 75px; filter: invert(1);">
+        </a>
+
+
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About Us</a></li>
+        </ul>
+    </footer>
+</div>
+
+{% endblock %}
