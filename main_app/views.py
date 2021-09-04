@@ -44,7 +44,6 @@ def travelreport(request):
     if request.method == 'POST':
         loc = request.POST.get("city")
         date = request.POST.get("date")
-        data_list = []
         try:
             # Latitude and Longitude api
             parameters = {
@@ -55,13 +54,9 @@ def travelreport(request):
                 "http://www.mapquestapi.com/geocoding/v1/address", params=parameters)
             data = response.json()
             d1 = data['results'][0]
-            print(d1)
             d2 = d1['locations'][0]
-            print(d2)
             lat = d2['latLng']['lat']
             lng = d2['latLng']['lng']
-            print(lat)
-            print(lng)
 
             # Weather Api
             a1 = "http://api.openweathermap.org/data/2.5/forecast?"
@@ -98,20 +93,24 @@ def travelreport(request):
             res2 = [sub1['main'] for sub1 in list2]
             aqi = [a['aqi'] for a in res2]
 
-            # Put all data in list
-            data_list.append([time, temp, mini, maxim, hum,
-                             weatherm, weatherd, windspeed, aqi])
-            print(data_list)
-
         except Exception as e:
             context = {
                 'errormsg': "Something went wrong"
             }
             print(e)
         context = {
-            'data_list': data_list
+            'time': time,
+            'temp': temp,
+            'mini': mini,
+            'maxim': maxim,
+            'hum': hum,
+            'weatherm': weatherm,
+            'weatherd': weatherd,
+            'windspeed': windspeed,
+            'aqi': aqi,
+            'loc': loc
         }
-        return render(request, 'main_app/data.html', context)
+        return render(request, 'main_app/report.html', context)
 
     form = NewHomePageForm()
     context = {
