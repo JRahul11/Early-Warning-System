@@ -70,7 +70,7 @@
 
 .home {
     display: flex;
-    background: url("https://images.unsplash.com/photo-1630541657813-c16abe60f05b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80") no-repeat center;
+    background: url("https://images.unsplash.com/photo-1630541657813-c16abe60f05b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80%22") no-repeat center;
     height: 100vh;
     color: #fff;
     min-height: 500px;
@@ -109,7 +109,7 @@
 
 .text {
     align-items: center;
-    text-shadow: 2px 3px black;
+    text-shadow: 2px 2px black;
 }
 
 #table-1 {
@@ -151,4 +151,52 @@ th {
     bottom: 25px;
     height: 11px;
     width: 100%;
+}
+
+.profile {
+    display: flex;
+    background: url("https://images.unsplash.com/photo-1471506480208-91b3a4cc78be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1506&q=80%22") no-repeat center;
+    height: 100vh;
+    color: #fff;
+    min-height: 500px;
+    background-size: cover;
+}
+
+.card-2 {
+    height: 64%;
+    position: relative;
+    left: 125px;
+    top: 120px;
+    padding: 21px 12px;
+    background-color: white;
+    width: 29%;
+    border-radius: 16px;
+}
+
+.desc-2 {
+    margin: -305px 0px;
+    left: 2px 2px;
+    position: relative;
+    left: 0px 134px;
+    top: 38px;
+    left: 544px;
+    width: 539px;
+}
+
+#navmain {
+    background-color: #f8f9fa !important;
+}
+
+#time {
+    width: 100%;
+    padding: 5px 8px;
+}
+
+.car {
+    width: 50%;
+    background-color: #385232;
+    margin: auto;
+    top: 110px;
+    border-radius: 28px;
+    height: fit-content;
 }

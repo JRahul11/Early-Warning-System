@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed top navbar-expand-lg navbar-light bg-light py-5">
+    <nav class="navbar fixed top navbar-expand-lg navbar-light bg-light py-3">
         <div class="container-fluid">
             <img src="{% static 'images/logo.jpg' %}" alt="cloud" style="width: 100px;position: relative;left: 75px;">
             <a class="navbar-brand" href="#">Travel-Buddy</a>
@@ -52,7 +52,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Dashboard</a>
-                                <a class="dropdown-item" href="#">Edit Profile</a>
+                                <a class="dropdown-item" href="{% url 'profile' %}">Edit Profile</a>
                                 <a class="dropdown-item" href="#">Log Out</a>
                             </div>
                         </li>

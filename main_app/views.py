@@ -117,3 +117,14 @@ def travelreport(request):
         "form": form
     }
     return render(request, 'main_app/home.html', context)
+def pills(request):
+    if request.method == 'POST':
+        med = request.POST.get("medname")
+        timee = request.POST.get("timee")
+        
+        print(med)
+        print(timee)
+
+        return render(request, 'main_app/meds.html')
+    else:
+        return render(request, 'main_app/meds.html')
