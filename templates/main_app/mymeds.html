@@ -1,0 +1,34 @@
+{% extends 'main_nav.html' %} {% load static %} {% block title %} My Meds {% endblock %} {% block content %} {% if empty == True %}
+<br><br>
+<center>
+    <h2>No Medication Added</h2>
+    <a href="{% url 'newmed' %}">Click here to add now!</a>
+</center>
+{% endif %} {% if empty == False %}
+
+<div class="table-responsive">
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Medicine Name</th>
+                <th scope="col">Dosage</th>
+                <th scope="col">Time</th>
+                <th scope="col">Frequency</th>
+                <th scope="col"><a href="{% url 'newmed' %}" style="text-decoration: none;">Add New Record</a></th>
+            </tr>
+        </thead>
+        <tbody class="customtable">
+            {% for d in mymeds %}
+            <tr>
+                <td style="color: black;">{{d.pill_name}}</td>
+                <td style="color: black;">{{d.pill_dosage}}</td>
+                <td style="color: black;">{{d.pill_time}}</td>
+                <td style="color: black;">{{d.pill_frequency}}</td>
+                <td style="color: black;"><a href="{% url 'deletemed' d.id %}" style="text-decoration: none;">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endif %} {% endblock %}

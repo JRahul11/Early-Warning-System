@@ -57,3 +57,8 @@ def setLoaded(reset=False):
         loaded = 0
     else:
         loaded += 1
+
+
+def user_logout(request):
+    logout(request)
+    return redirect("index")
