@@ -10,4 +10,4 @@ class ProfileModel(models.Model):
     phone = models.IntegerField()
 
     def __str__(self):
-        return self.user
+        return self.name

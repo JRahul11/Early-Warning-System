@@ -1,22 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import ProfileModel
-from .forms import NewProfileForm, NewHomePageForm
+from .forms import NewHomePageForm
+from datetime import datetime
 from datetime import date
 import requests
 
 
 def profile(request):
     user = request.user
-    if request.POST.get("name") and request.POST.get("dob") and request.POST.get("gender") and request.POST.get("phone"):
-        name = request.POST.get("name")
-        dob = request.POST.get("dob")
+    if request.POST.get("uname") and request.POST.get("udob") and request.POST.get("gender") and request.POST.get("uphone"):
+        name = request.POST.get("uname")
+        dob = request.POST.get("udob")
         gender = request.POST.get("gender")
-        phone = int(request.POST.get("phone"))
+        phone = int(request.POST.get("uphone"))
         today = date.today()
-        age = today.year - datetime.strptime(dob, '%d/%m/%y %H:%M:%S').year
+        print(dob)
+        print(type(dob))
+        age = today.year - datetime.strptime(dob, '%Y-%m-%d').year
         profile = ProfileModel.objects.create(
             user=user, name=name, age=age, gender=gender, phone=phone)
-        return redirect("home")
+        return redirect("profile")
     else:
         return render(request, "main_app/profile.html")
 
@@ -117,3 +120,7 @@ def travelreport(request):
         "form": form
     }
     return render(request, 'main_app/home.html', context)
+
+
+def meds(request):
+    return render(request, 'main_app/meds.html')
