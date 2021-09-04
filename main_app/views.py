@@ -1,9 +1,13 @@
-from django.shortcuts import render, redirect
-from .models import ProfileModel
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import ProfileModel, MedModel
 from .forms import NewHomePageForm
 from datetime import datetime
 from datetime import date
 import requests
+from early_warning_system.settings import EMAIL_HOST_USER
+from django.core.mail import send_mail
+# import schedule
+# import time
 
 
 def profile(request):
@@ -14,33 +18,48 @@ def profile(request):
         gender = request.POST.get("gender")
         phone = int(request.POST.get("uphone"))
         today = date.today()
-        print(dob)
-        print(type(dob))
         age = today.year - datetime.strptime(dob, '%Y-%m-%d').year
         profile = ProfileModel.objects.create(
             user=user, name=name, age=age, gender=gender, phone=phone)
-        return redirect("profile")
+        return redirect("newmed")
     else:
         return render(request, "main_app/profile.html")
 
-    # if request.method == 'POST':
-    #     form = NewProfileForm(request.POST)
-    #     if form.is_valid():
-    #         name = form.cleaned_data['name']
-    #         dob = form.cleaned_data['dob']
-    #         gender = form.cleaned_data['gender']
-    #         phone = form.cleaned_data['phone']
-    #         today = date.today()
-    #         age = today.year - dob.year - \
-    #             ((today.month, today.day) < (dob.month, dob.day))
-    #         profile = ProfileModel.objects.create(
-    #             user=user, name=name, age=age, gender=gender, phone=phone)
-    # else:
-    #     form = NewProfileForm()
-    # context = {
-    #     'form': form
-    # }
-    # return render(request, "main_app/profile.html", context)
+
+def newmed(request):
+    user = request.user
+    profilecheck = ProfileModel.objects.filter(user=user)
+    if not profilecheck.exists():
+        return redirect("profile")
+    if request.POST.get("pill_name") and request.POST.get("pill_time") and request.POST.get("pill_frequency"):
+        pill_name = request.POST.get("pill_name")
+        pill_time = request.POST.get("pill_time")
+        pill_frequency = request.POST.get("pill_frequency")
+        pill = MedModel.objects.create(
+            user=user, pill_name=pill_name, pill_time=pill_time, pill_frequency=pill_frequency)
+        return redirect("newmed")
+    else:
+        return render(request, "main_app/newmed.html")
+
+
+def mymeds(request):
+    user = request.user
+    empty = False
+    mymeds = MedModel.objects.filter(user=user)
+    if not mymeds.exists():
+        empty = True
+    context = {
+        'mymeds': mymeds,
+        'empty': empty,
+    }
+    return render(request, 'main_app/mymeds.html', context)
+
+
+def deletemed(request, med_id):
+    user = request.user
+    meds = get_object_or_404(MedModel, user=user, id=med_id)
+    meds.delete()
+    return redirect('mymeds')
 
 
 def travelreport(request):
@@ -120,7 +139,3 @@ def travelreport(request):
         "form": form
     }
     return render(request, 'main_app/home.html', context)
-
-
-def meds(request):
-    return render(request, 'main_app/meds.html')
