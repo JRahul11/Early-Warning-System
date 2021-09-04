@@ -34,9 +34,10 @@ def newmed(request):
     if request.POST.get("pill_name") and request.POST.get("pill_time") and request.POST.get("pill_frequency"):
         pill_name = request.POST.get("pill_name")
         pill_time = request.POST.get("pill_time")
+        pill_dosage = int(request.POST.get("dosage"))
         pill_frequency = request.POST.get("pill_frequency")
         pill = MedModel.objects.create(
-            user=user, pill_name=pill_name, pill_time=pill_time, pill_frequency=pill_frequency)
+            user=user, pill_name=pill_name, pill_time=pill_time,pill_dosage=pill_dosage, pill_frequency=pill_frequency)
         return redirect("newmed")
     else:
         return render(request, "main_app/newmed.html")
@@ -139,14 +140,3 @@ def travelreport(request):
         "form": form
     }
     return render(request, 'main_app/home.html', context)
-def pills(request):
-    if request.method == 'POST':
-        med = request.POST.get("medname")
-        timee = request.POST.get("timee")
-        
-        print(med)
-        print(timee)
-
-        return render(request, 'main_app/meds.html')
-    else:
-        return render(request, 'main_app/meds.html')
