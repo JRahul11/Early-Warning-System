@@ -19,7 +19,7 @@ and helps them to keep track of their medications while travelling via SMS/Email
 2. Pill dosage reminder via SMS/Email.
 
 Required Modules: 
-pip install django
+pip install django <br>
 pip install requests
 
 
