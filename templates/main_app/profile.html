@@ -1,0 +1,61 @@
+{% extends 'main_nav.html' %} {% load static %} {% block title %} Profile {% endblock %} {% block content %}
+
+<section class="profile">
+    <div class="card-2">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputEmail1" style="color: black;padding: 5px 0px;">Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="uname" aria-describedby="emailHelp" placeholder="Enter Name" style="padding: 5px 0px;" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" style="color: black;padding: 5px 0px;">Phone number</label>
+                    <input type="tel" name="uphone" required style="display: block;width: 100%;padding: 5px 0px;" placeholder="Enter Ph.no">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="dob" style="color: black;padding: 5px 0px;">Date of Birth:</label>
+                    <input id="datefield" name="udob" type='date' min='1899/01/01' max='2000/13/13' style="display: block;width: 100%;padding: 5px 0px;"></input>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="gender" style="color: black;padding: 5px 0px;">Gender:</label>
+                    <select id="gender" title="gender" name="gender" style="display: block; width: 100%;padding: 5px 0px;">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary" style="padding: 5px 20px;float: right;margin: 20px 0px;">Submit</button>
+            </form>
+            <div class="desc-2">
+                <h1 class="text" style="color: #8493ff;">Get Timely Reminders of your medication while Travelling</h1>
+                <br>
+                <p style="text-shadow: 2px 2px black;">Enter your details to get Reminders</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4">
+        <div class="col-md-4 d-flex align-items-center">
+            <img src="{% static 'images/logo.jpg' %}" alt="cloud" style="width: 58px;position: relative;left: -20px;">
+            <span class="text-muted" style="position: relative;left: -10px;">&copy; 2021 Travel-Buddy, Inc</span>
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><i class="fa fa-twitter" aria-hidden="true" style="font-size: 25px;"></i></svg>
+                </a>
+            </li>
+            <li class="ms-3"><i class="fa fa-instagram" aria-hidden="true" style="font-size: 25px;"></i></li>
+            <li class="ms-3"><i class="fa fa-facebook" aria-hidden="true" style="font-size: 25px;"></i></li>
+        </ul>
+    </footer>
+</div>
+
+{% endblock %}
