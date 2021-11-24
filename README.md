@@ -1,4 +1,4 @@
-# Traveller's Early Warning system
+# Traveller's Early Warning System
 
 Background: Frequent travellers suffering from various medical conditions find
 it difficult to keep watch on their medical routine and either miss dosages, or are
