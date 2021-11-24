@@ -16,7 +16,7 @@ and helps them to keep track of their medications while travelling via SMS/Email
     g. Wind Speed
     h. AQI
     
-2. Pill dosage reminder via SMS/Email.
+2. Pill dosage reminder via Email.
 
 Required Modules: 
 pip install django, pip install requests
